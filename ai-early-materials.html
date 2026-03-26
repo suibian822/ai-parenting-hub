@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 生成早教素材大全 - AI 家长助手</title>
+    <meta name="description" content="用 AI 生成识字卡片、数学练习题、涂色画、贴纸等早教素材，包含即梦、Midjourney 等工具的提示词模板">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        h1 { color: #667eea; margin-bottom: 20px; font-size: 2em; }
+        h2 { color: #667eea; margin: 30px 0 15px; font-size: 1.5em; }
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        .back-link:hover { background: #667eea; color: white; }
+        .tool-card {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .tool-name { font-size: 1.3em; font-weight: bold; color: #667eea; margin-bottom: 10px; }
+        .price { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; display: inline-block; margin: 10px 0; }
+        .rating { color: #f59e0b; font-size: 1.2em; margin: 10px 0; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .pros { background: #ecfdf5; padding: 15px; border-radius: 10px; }
+        .cons { background: #fef2f2; padding: 15px; border-radius: 10px; }
+        .pros h3 { color: #059669; margin-bottom: 10px; }
+        .cons h3 { color: #dc2626; margin-bottom: 10px; }
+        .prompt-box {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .prompt-box code {
+            display: block;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .affiliate-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        .affiliate-link:hover { transform: scale(1.05); }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        th { background: #f8f9ff; color: #667eea; font-weight: bold; }
+        .tip-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .tip-box h3 { color: #92400e; margin-bottom: 10px; }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .pros-cons { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← 返回首页</a>
+        
+        <h1>🎨 AI 生成早教素材大全</h1>
+        <p style="color: #666; margin-bottom: 30px;">用 AI 生成识字卡片、数学练习题、涂色画、贴纸等早教素材，一键生成可打印素材</p>
+        
+        <h2>🎯 快速对比表</h2>
+        <table>
+            <tr>
+                <th>工具</th>
+                <th>价格</th>
+                <th>素材类型</th>
+                <th>推荐度</th>
+            </tr>
+            <tr>
+                <td><strong>即梦 AI</strong></td>
+                <td>免费 + 会员</td>
+                <td>识字卡/涂色画/贴纸</td>
+                <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Midjourney</strong></td>
+                <td>$10/月</td>
+                <td>高质量插画</td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>DALL-E 3</strong></td>
+                <td>免费</td>
+                <td>卡通插画</td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Stable Diffusion</strong></td>
+                <td>免费</td>
+                <td>自定义素材</td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+        </table>
+        
+        <h2>📋 详细评测</h2>
+        
+        <div class="tool-card">
+            <div class="tool-name">1. 即梦 AI - 中文提示词最友好</div>
+            <div class="price">💰 免费基础版 | 会员 ¥19.9/月</div>
+            <div class="rating">推荐指数：⭐⭐⭐⭐⭐</div>
+            <p><strong>适合人群：</strong>不会英文提示词的家长，追求快速出图</p>
+            <p><strong>核心优势：</strong></p>
+            <ul style="margin: 15px 0 15px 25px;">
+                <li>✅ 中文提示词直接生成</li>
+                <li>✅ 内置早教素材模板</li>
+                <li>✅ 一键生成可打印尺寸</li>
+                <li>✅ 支持批量生成</li>
+            </ul>
+            <div class="prompt-box">
+                <h3>📝 识字卡片提示词模板</h3>
+                <code>儿童识字卡片，大字展示汉字"[字]"，配可爱插图，白色背景，简洁风格，适合 3-6 岁儿童，高清可打印</code>
+            </div>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>✅ 优点</h3>
+                    <ul style="margin-left: 15px;">
+                        <li>中文提示词友好</li>
+                        <li>模板丰富</li>
+                        <li>出图速度快</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>❌ 缺点</h3>
+                    <ul style="margin-left: 15px;">
+                        <li>免费版有水印</li>
+                        <li>高级功能需会员</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://jimeng.jianying.com" target="_blank" class="affiliate-link">🎁 免费试用即梦 AI</a>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-name">2. Midjourney - 质量最高</div>
+            <div class="price">💰 $10/月 起</div>
+            <div class="rating">推荐指数：⭐⭐⭐⭐</div>
+            <p><strong>适合人群：</strong>追求高质量素材，有一定提示词经验</p>
+            <div class="prompt-box">
+                <h3>📝 涂色画提示词模板</h3>
+                <code>children coloring page, cute [animal] character, simple lines, black and white, no shading, white background, high quality --ar 3:4</code>
+            </div>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>✅ 优点</h3>
+                    <ul style="margin-left: 15px;">
+                        <li>图像质量最高</li>
+                        <li>风格多样</li>
+                        <li>细节丰富</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>❌ 缺点</h3>
+                    <ul style="margin-left: 15px;">
+                        <li>需要英文提示词</li>
+                        <li>需要付费订阅</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://midjourney.com" target="_blank" class="affiliate-link">🎁 试用 Midjourney</a>
+        </div>
+        
+        <h2>🎨 200+ 早教素材提示词模板</h2>
+        <div class="tip-box">
+            <h3>📦 分类模板</h3>
+            <ul style="margin-left: 20px; line-height: 2.5;">
+                <li><strong>识字卡片：</strong>汉字 + 插图组合</li>
+                <li><strong>数学练习题：</strong>加减法/图形认知</li>
+                <li><strong>涂色画：</strong>动物/植物/交通工具</li>
+                <li><strong>贴纸素材：</strong>奖励贴纸/装饰贴纸</li>
+                <li><strong>拼图素材：</strong>2-6 块简易拼图</li>
+                <li><strong>连线游戏：</strong>数字连线/字母连线</li>
+            </ul>
+        </div>
+        
+        <h2>💡 选购建议</h2>
+        <div class="tip-box">
+            <h3>🏆 综合推荐</h3>
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li><strong>新手首选：</strong>即梦 AI - 中文友好，模板多</li>
+                <li><strong>质量优先：</strong>Midjourney - 图像质量最高</li>
+                <li><strong>免费方案：</strong>DALL-E 3 + Stable Diffusion</li>
+            </ol>
+        </div>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb; color: #999; font-size: 0.9em;">
+            <p>📅 最后更新：2026-03-26 | ❤️ 阅读 3,156 | 👍 收藏 428</p>
+        </div>
+    </div>
+</body>
+</html>
